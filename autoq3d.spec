@@ -15,13 +15,9 @@ Source0:	http://dl.sourceforge.net/autoq3d/%{name}-v%{version}sourceLinux.zip
 #Source1:	-
 # Source1-md5:	-
 #Patch0:		%{name}-DESTDIR.patch
-URL:		-
-%if %{with initscript}
-BuildRequires:	rpmbuild(macros) >= 1.228
-Requires(post,preun):	/sbin/chkconfig
-%endif
-#BuildRequires:	-
-#BuildRequires:	autoconf
+URL:		http://autoq3d.ecuadra.com/
+BuildRequires:	QtGui-devel
+BuildRequires:	Mesa-libGL-devel
 #BuildRequires:	automake
 #BuildRequires:	intltool
 #BuildRequires:	libtool
@@ -87,34 +83,13 @@ Statyczna biblioteka ....
 
 %prep
 %setup -q -n %{name}
-#%setup -q -c -T
-#%setup -q -n %{name}
-#%%setup -q -n %{name}-%{version}.orig -a 1
-#%patch0 -p1
-
-# undos the source
-#find '(' -name '*.php' -o -name '*.inc' ')' -print0 | xargs -0 sed -i -e 's,\r$,,'
-
-# remove CVS control files
-#find -name CVS -print0 | xargs -0 rm -rf
 
 %build
-# if ac/am/* rebuilding is necessary, do it in this order and add
-# appropriate BuildRequires
-#%%{__intltoolize}
-#%%{__gettextize}
-#%%{__libtoolize}
-#%%{__aclocal}
-#%%{__autoconf}
-#%%{__autoheader}
-#%%{__automake}
-#cp -f /usr/share/automake/config.sub .
-%configure
-%{__make}
+/usr/bin/qmake -o Makefile AutoQ3D.pro
 
-#%{__make} \
-#	CFLAGS="%{rpmcflags}" \
-#	LDFLAGS="%{rpmldflags}"
+%{__make} \
+	CFLAGS="%{rpmcflags}" \
+	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
