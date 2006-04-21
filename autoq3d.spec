@@ -18,8 +18,8 @@ Source0:	http://dl.sourceforge.net/autoq3d/%{name}-v%{version}sourceLinux.zip
 URL:		http://autoq3d.ecuadra.com/
 BuildRequires:	QtGui-devel
 BuildRequires:	Mesa-libGL-devel
-#BuildRequires:	automake
-#BuildRequires:	intltool
+BuildRequires:	QtOpenGL-devel
+BuildRequires:	qt4-build
 #BuildRequires:	libtool
 #Requires(postun):	-
 #Requires(pre,post):	-
