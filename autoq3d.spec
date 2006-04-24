@@ -85,6 +85,7 @@ Statyczna biblioteka ....
 %setup -q -n %{name}
 
 %build
+QTDIR=/usr; export QTDIR
 /usr/bin/qmake -o Makefile AutoQ3D.pro
 
 %{__make} \
