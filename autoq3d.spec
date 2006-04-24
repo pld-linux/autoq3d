@@ -1,9 +1,4 @@
-#
-# Conditional build:
-%bcond_with	tests		# build with tests
-%bcond_without	tests		# build without tests
-#
-Summary:	autoq3d
+Summary:	autoq3d - complete 3D modeling application for computing aided drafting in three dimensions
 Summary(pl):	autoq3d
 Name:		AutoQ3D
 Version:	1.20
@@ -12,74 +7,19 @@ License:	GPL
 Group:		Applications
 Source0:	http://dl.sourceforge.net/autoq3d/%{name}-v%{version}sourceLinux.zip
 # Source0-md5:	cccd22e1c068651c8ad7c0831acd2aba
-#Source1:	-
-# Source1-md5:	-
-#Patch0:		%{name}-DESTDIR.patch
+#Patch0:	%{name}-DESTDIR.patch
 URL:		http://autoq3d.ecuadra.com/
 BuildRequires:	QtGui-devel
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	QtOpenGL-devel
 BuildRequires:	qt4-build
 #BuildRequires:	libtool
-#Requires(postun):	-
-#Requires(pre,post):	-
-#Requires(preun):	-
-#Requires:	-
-#Provides:	-
-#Provides:	group(foo)
-#Provides:	user(foo)
-#Obsoletes:	-
-#Conflicts:	-
-#BuildArch:	noarch
-#ExclusiveArch:	%{ix86}
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+autoq3d - complete 3D modeling application for computing aided
+drafting in three dimensions.
 
 %description -l pl
-
-%package subpackage
-Summary:	-
-Summary(pl):	-
-Group:		-
-
-%description subpackage
-
-%description subpackage -l pl
-
-%package libs
-Summary:	-
-Summary(pl):	-
-Group:		Libraries
-
-%description libs
-
-%description libs -l pl
-
-
-%package devel
-Summary:	Header files for ... library
-Summary(pl):	Pliki nag³ówkowe biblioteki ...
-Group:		Development/Libraries
-#Requires:	%{name} = %{version}-%{release}
-
-%description devel
-This is the package containing the header files for ... library.
-
-%description devel -l pl
-Ten pakiet zawiera pliki nag³ówkowe biblioteki ....
-
-%package static
-Summary:	Static ... library
-Summary(pl):	Statyczna biblioteka ...
-Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
-
-%description static
-Static ... library.
-
-%description static -l pl
-Statyczna biblioteka ....
 
 %prep
 %setup -q -n %{name}
@@ -103,14 +43,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%pre
-
-%post
-
-%preun
-
-%postun
 
 %if %{with ldconfig}
 %post	-p /sbin/ldconfig
@@ -148,10 +80,3 @@ fi
 %endif
 
 #%{_examplesdir}/%{name}-%{version}
-
-%if %{with subpackage}
-%files subpackage
-%defattr(644,root,root,755)
-#%doc extras/*.gz
-#%{_datadir}/%{name}-ext
-%endif
