@@ -1,5 +1,5 @@
 Summary:	autoq3d - complete 3D modeling application for computing aided drafting in three dimensions
-Summary(pl.UTF-8):   autoq3d - pełna aplikacja CAD do modelowania 3D
+Summary(pl.UTF-8):	autoq3d - pełna aplikacja CAD do modelowania 3D
 Name:		AutoQ3D
 Version:	1.20
 Release:	0.1
