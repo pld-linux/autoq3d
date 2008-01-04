@@ -12,7 +12,7 @@ URL:		http://autoq3d.ecuadra.com/
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	QtGui-devel
 BuildRequires:	QtOpenGL-devel
-BuildRequires:	qt4-build
+BuildRequires:	qt4-build >= 4.3.3-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,7 +27,7 @@ autoq3d to pełna aplikacja CAD do modelowania 3D.
 
 %build
 QTDIR=/usr; export QTDIR
-qt4-qmake -o Makefile AutoQ3D.pro
+qmake-qt4 -o Makefile AutoQ3D.pro
 
 %{__make} \
 	CFLAGS="%{rpmcflags}" \
