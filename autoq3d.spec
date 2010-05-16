@@ -13,6 +13,7 @@ BuildRequires:	OpenGL-devel
 BuildRequires:	QtGui-devel
 BuildRequires:	QtOpenGL-devel
 BuildRequires:	qt4-build >= 4.3.3-3
+BuildRequires:	unzip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
